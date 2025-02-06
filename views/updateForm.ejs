@@ -1,0 +1,38 @@
+<%- include("partials/header.ejs") %>
+
+<div class="container">
+  <h1>Update a review!</h1>
+
+  <ul >
+    
+      <li>
+        <form action="/update" method="POST">
+
+          <input type = "hidden" name = "bookId" value = '<%=locals.reviewId %>' >
+        
+        
+          <p>What notes do you have about it?</p>
+          <input type="text" name="notes">
+        
+          <p>What's the rating out of 10 you'd give this book?</p>
+          <input type="text" name="rating">
+        
+          <p>What's the Open Library Id for this book's cover?</p>
+          <input type="text" name="olkey">
+        
+          
+          <button type="submit">Submit</button>
+        </form>
+        <form action="/delete" method="POST">
+          <input type = "hidden" name = "bookId" value = '<%=locals.reviewId %>' >
+          <button type="submit">Delete</button>
+        </form>
+      </li>
+      
+  </ul>
+</div>
+
+
+</body>
+
+</html>

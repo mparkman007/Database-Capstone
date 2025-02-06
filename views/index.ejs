@@ -1,0 +1,44 @@
+<%- include("partials/header.ejs") %>
+
+
+<body id="landing-page">
+
+<div class="container">
+  <form class="d-flex">
+    <button class="btn btn-outline-success" type="submit" formaction="/new" formmethod="POST">Add a new book</button>
+  </form>
+  <h1>Book List</h1>
+  
+  <ul id="postsList">
+
+    <a href="/?sort=year"> Sort by Year</a>
+    <a href="/?sort=tile"> Sort by Title</a>
+    <a href="/?sort=rating"> Sort by Rating</a>
+    <% if(locals.blist) { %>
+      <% for(let i = 0; i <= locals.blist.length - 1; i++){ %>
+      <li>
+        <img src='https://covers.openlibrary.org/b/olid/<%=locals.blist[i].olkey%>-S.jpg'>
+        <h2>
+          <%= locals.blist[i].title %>
+        </h2>
+        <small>
+          Year Read:<%= locals.blist[i].yearread %>
+        </small>
+        <p>
+          <%= locals.blist[i].notes %>
+        </p>
+        <small>By: <%= locals.blist[i].author %> </small>
+        <small>
+          Rating: <%= locals.blist[i].rating %>
+        </small>
+        <a href='/updateForm?reviewId=<%=locals.blist[i].id%>'>Edit</a>
+        
+      </li>
+      <% } %>
+    <% } %>
+  </ul>
+</div>
+
+
+</body>
+</html>

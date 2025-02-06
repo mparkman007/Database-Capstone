@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs") %>
+
+
+
+<div class="container">
+  <h1>Add a new book to the list!</h1>
+
+  <ul >
+    
+      <li>
+        <form action="/new" method="post">
+          <p>What's the title of the book?</p>
+          <input type="text" name="title" required>
+        
+          <p>Who's the author?</p>
+          <input type="text" name="author" required>
+        
+          <p>What year did you read this in?</p>
+          <input type="text" name="yearread" required>
+        
+          <p>What notes do you have about it?</p>
+          <input type="text" name="notes" required>
+        
+          <p>What's the rating out of 10 you'd give this book?</p>
+          <input type="number" min="1" max="10" name="rating" required>
+        
+          <p>What's the Open Library Id for this book's cover?</p>
+          <input type="text" name="olkey">
+        
+          
+          <button type="submit" formaction="/add" formmethod="POST">Add</button>
+        </form>
+      </li>
+      
+  </ul>
+</div>
+
+</body>
+
+</html>
